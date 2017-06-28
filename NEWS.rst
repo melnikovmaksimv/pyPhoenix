@@ -1,6 +1,12 @@
 Changelog
 =========
 
+Version 0.10
+--------------
+
+- Phoenix 3 compliance
+- Add execute_update
+
 Version 0.9.1
 -----------
 
