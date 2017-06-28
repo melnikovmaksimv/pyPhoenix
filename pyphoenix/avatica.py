@@ -230,7 +230,7 @@ class AvaticaClient(object):
     def commitRequest(self, connectionId):
         request = CommitRequest(connection_id=connectionId)
 
-        return self._apply(request)
+        return self._apply(request).status
 
     def supportsExecute(self):
         return True
