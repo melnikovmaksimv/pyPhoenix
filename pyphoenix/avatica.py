@@ -228,7 +228,7 @@ class AvaticaClient(object):
         return self._apply(request).frame
 
     def commitRequest(self, connectionId):
-        request = CommitRequest(connectionId=connectionId)
+        request = CommitRequest(connection_id=connectionId)
 
         return self._apply(request)
 
