@@ -227,5 +227,10 @@ class AvaticaClient(object):
 
         return self._apply(request).frame
 
+    def commitRequest(self, connectionId):
+        request = CommitRequest(connection_id=connectionId)
+
+        self._apply(request)
+
     def supportsExecute(self):
         return True

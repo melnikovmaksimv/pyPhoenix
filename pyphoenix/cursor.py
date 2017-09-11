@@ -203,6 +203,25 @@ class Cursor(object):
                     self._transform_parameters(parameters), maxRowCount=self.itersize)
             self._process_results(results)
 
+    def execute_update(self, operation, parameters=None):
+        if self._closed:
+            raise ProgrammingError('the cursor is already closed')
+        self._updatecount = -1
+        self._set_frame(None)
+        if parameters is None or len(parameters) == 0:
+            if self._id is None:
+                self._set_id(self._connection._client.createStatement(self._connection._id))
+            self._connection._client.prepareAndExecute(self._connection._id, self._id,
+                operation, maxRowCount=-1)
+            self._connection._client.commitRequest(self._connection._id)
+        else:
+            statement = self._connection._client.prepare(self._connection._id,
+                operation, maxRowCount=-1)
+            self._set_id(statement.id)
+            self._set_signature(statement.signature)
+            self._connection._client.execute(self._connection._id, self._id,self._signature,
+                    self._transform_parameters(parameters), maxRowCount=self.itersize)
+            self._connection._client.commitRequest(self._connection._id)
 
     def executemany(self, operation, seq_of_parameters):
         if self._closed:
