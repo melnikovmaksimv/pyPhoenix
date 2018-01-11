@@ -12,12 +12,12 @@ def readme():
     with open('README.rst') as f:
         return f.read()
 
-version = "0.10.0"
+version = "0.11.0"
 
 setup(
     name="pyPhoenix",
     version=version,
-    description="python interface to Phoenix",
+    description="python interface to Phoenix and SQLAlchemy interfaces",
     long_description=readme(),
     author="Dimitri Capitaine",
     author_email="grytes29@gmail.com",
