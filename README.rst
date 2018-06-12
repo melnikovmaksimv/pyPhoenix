@@ -1,6 +1,20 @@
 Phoenix database adapter for Python
 ===================================
 
+.. image:: https://travis-ci.org/Pirionfr/pyPhoenix.svg?branch=master
+    :target: https://travis-ci.org/Pirionfr/pyPhoenix
+
+.. image:: https://img.shields.io/pypi/v/pyPhoenix.svg
+    :target: https://pypi.python.org/pypi/pyPhoenix
+
+.. image:: https://img.shields.io/pypi/pyversions/pyPhoenix.svg
+    :target: https://pypi.python.org/pypi/pyPhoenix
+
+.. image:: https://requires.io/github/Pirionfr/pyPhoenix/requirements.svg?branch=master
+    :target: https://requires.io/github/Pirionfr/pyPhoenix/requirements/?branch=master
+    :alt: Requirements Status
+
+
 ``pyphoenix`` is a Python library for accessing the
 `Phoenix SQL database <http://phoenix.apache.org/>`_
 using the

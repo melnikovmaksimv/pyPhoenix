@@ -1,5 +1,9 @@
 Changelog
 =========
+Version 0.11
+--------------
+
+- Python 2+3 compatibility for sqlalchemy phoenix
 
 Version 0.10
 --------------
