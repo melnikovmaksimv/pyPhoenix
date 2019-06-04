@@ -1,23 +1,19 @@
 language: python
-
 python:
-  - 2.7
-  - 3.4
-  - 3.5
-
+- 2.7
+- 3.4
+- 3.5
 install:
-  - pip install -r requirements.txt
-  - python setup.py install
-
+- pip install -r requirements.txt
+- python setup.py install
 deploy:
   provider: pypi
   user: pirion
   password:
-    secure: VqpnMY6EuIsqII5xnZAmS8ezy+H2mtVdOFnzfryPHyUSjmUQp6DzG2ZcaQqjeyuj89RwCTWgF6p5v/wiP0LAT/zzP83sLkhllgm/v+hES9lPZ2SCWFeT8bQrqrFBhiOdbeViJlBxVMKk4ldFY9qSfCyTOP8T6SvQ9NdJuaYTCzsm3gqUl5tW2mePsbIQW0EcYs2hAkt/4F0kZKg2pIFtsa+hrccejUlG9zQxEBoGD7sDpZNw1N4xU43AnbSHF/S6SJ8kNoa4STrdW+TynKB3x8Ioxpzn2nNckAAUe16RtE3y9n7aTfhsPhSIfp+3Eep6d7c26MexereDeTtyRQVpb7lIQGUkBgJtrjK+/oPrxKzjBbq8EAc08KTmxDef7SZ3EMK4wjZI/s40P2j6rf1lNZoE5UV38dvdpCJ8hBZboCfrkb8wr8y5v4X+QDAdus/8WVmFuFOqkrLkYN1DUtJXIOrT0k3ypR57nCij8ySoRF7REX6FU1YqfoBg10OVD6dIoGzHJ7fUNR+3MWyQXKOnhdR8WLggDTwdA/Ofb8jmp5gHX+8zwrXtbGUpuB2/6W2FhI90TDc+Zij3JZchPS+/JWfQrRDXmNmguM409rszFVjIRQEBCdvQZm0N5rZ+ouR/zzILowlU7DjSY68M3UemF89XQtUMrSQgkOVLpsV2lyk=
-  distributions: "sdist bdist_wheel bdist_egg"
+    secure: k+b1vOYgNhhelP+h3jzfSJb6QOe+0YX4/IH+fYzZLA3KP8gGFY8xJJQH6OD8FkArnw7qpflfJ7NLvmmhnsyejj2GkeJkDax52QIOEVeEtuppUpPq8wuZAGknN+Jh6TUpc3PiXQQdGKEsFE2hPZIXHMzmW9wlAErTZlY/VFkAZO6Xokc9AL5/o1vmyZYdgVvZkmTjguRl4KkNQhbDP563Ck+7d4sbZqC4pK54eImuZQU2pRY6bTwsFG0Ny+7OePJS9k374+eT4DW8noZFpB1fDQe2ZkOeHu27d3pENNXV/A0MTgpX0QG1GLMLaL3RaPIL6FwQqZeAZjFCfsBSy06bGhYtxxIFuJJObH8G5+m1hw+1h4Ff3Ru+p3Wflc/fleN4p/uO4fTm7sU/N2EDk1y2fE9hVPoF5Mm5OtG0345ay5/7AM+VJeyuFaOoBnUSVQCvKvt067UEvvukRqqHJCqyYXI/0TRnacwvB7Gct20gAc6I6SuCzimpWYS690aD3uHbGoTKSy5uN7LhzDerpW4S+FfLyMw3hW5WxcSQapyprYfQVYN7l4b/en5arltEz1477fNMLlHEH7VLv1I/7k7BET5M84DV5kB2J7Oc2zHcRzl2IN8+u6+t/EpfZtlJ9tHECT5uvDnkWbqoUAn459AMSwZJJ64oRE1iKebm27Pve/w=
+  distributions: sdist bdist_wheel bdist_egg
   skip_existing: true
   on:
-      tags: true
-
+    tags: true
 script:
- - echo "Done"
+- echo "Done"
