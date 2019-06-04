@@ -31,7 +31,7 @@ ColumnDescription = collections.namedtuple('ColumnDescription', 'name type_code 
 
 class Cursor(object):
     """Database cursor for executing queries and iterating over results.
-    
+
     You should not construct this object manually, use :meth:`Connection.cursor() <pyphoenix.connection.Connection.cursor>` instead.
     """
 
@@ -232,8 +232,8 @@ class Cursor(object):
         self._set_id(statement.id)
         self._set_signature(statement.signature)
         for parameters in seq_of_parameters:
-            self._connection._client.execute(self._connection._id, self._id, self._transform_parameters(parameters),
-                    maxRowCount=self.itersize)
+            self._connection._client.execute(self._connection._id, self._id, self._signature,
+                                             self._transform_parameters(parameters), maxRowCount=self.itersize)
 
 
     def fetchone(self):
@@ -306,7 +306,7 @@ class Cursor(object):
         """Read-only attribute providing the current 0-based index of the
         cursor in the result set or ``None`` if the index cannot be
         determined.
-        
+
         The index can be seen as index of the cursor in a sequence
         (the result set). The next fetch operation will fetch the
         row indexed by :attr:`rownumber` in that sequence.
