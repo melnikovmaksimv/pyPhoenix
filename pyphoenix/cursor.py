@@ -234,7 +234,7 @@ class Cursor(object):
         for parameters in seq_of_parameters:
             self._connection._client.execute(self._connection._id, self._id, self._signature,
                                              self._transform_parameters(parameters), maxRowCount=self.itersize)
-
+        self._connection._client.commitRequest(self._connection._id)
 
     def fetchone(self):
         result_row = []
