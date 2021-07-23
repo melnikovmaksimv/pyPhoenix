@@ -90,15 +90,13 @@ class PhoenixDialect(DefaultDialect):
         if schema is None:
             query = "SELECT COLUMN_NAME,  DATA_TYPE, NULLABLE " \
                     "FROM system.catalog " \
-                    "WHERE table_name = ? " \
-                    "ORDER BY ORDINAL_POSITION"
+                    "WHERE table_name = ? "
             params = [table_name.upper()]
         else:
             query = "SELECT COLUMN_NAME, DATA_TYPE, NULLABLE " \
                     "FROM system.catalog " \
                     "WHERE TABLE_SCHEM = ? " \
-                    "AND table_name = ? " \
-                    "ORDER BY ORDINAL_POSITION"
+                    "AND table_name = ? "
             params = [schema.upper(), table_name.upper()]
 
         # get all of the fields for this table
