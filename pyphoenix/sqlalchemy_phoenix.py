@@ -66,10 +66,10 @@ class PhoenixDialect(DefaultDialect):
 
     def has_table(self, connection, table_name, schema=None):
         if schema is None or schema == 'default':
-            query = "SELECT 1 FROM system.catalog WHERE table_name = ? LIMIT 1"
+            query = "SELECT 1 FROM system.catalog WHERE UPPER(table_name) = ? LIMIT 1"
             params = [table_name.upper()]
         else:
-            query = "SELECT 1 FROM system.catalog WHERE table_name = ? AND TABLE_SCHEM = ? LIMIT 1"
+            query = "SELECT 1 FROM system.catalog WHERE  UPPER(table_name) = ? AND TABLE_SCHEM = ? LIMIT 1"
             params = [table_name.upper(), schema.upper()]
         return connection.execute(query, params).first() is not None
 
@@ -90,14 +90,14 @@ class PhoenixDialect(DefaultDialect):
         if schema is None or schema == 'default':
             query = "SELECT COLUMN_NAME,  DATA_TYPE, NULLABLE " \
                     "FROM system.catalog " \
-                    "WHERE table_name = ? " \
+                    "WHERE  UPPER(table_name) = ? " \
                     "AND column_name is not null"
             params = [table_name.upper()]
         else:
             query = "SELECT COLUMN_NAME, DATA_TYPE, NULLABLE " \
                     "FROM system.catalog " \
                     "WHERE TABLE_SCHEM = ? " \
-                    "AND table_name = ? " \
+                    "AND  UPPER(table_name) = ? " \
                     "AND column_name is not null"
             params = [schema.upper(), table_name.upper()]
 
