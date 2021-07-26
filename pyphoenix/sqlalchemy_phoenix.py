@@ -74,7 +74,7 @@ class PhoenixDialect(DefaultDialect):
         return connection.execute(query, params).first() is not None
 
     def get_schema_names(self, connection, **kw):
-        query = "SELECT DISTINCT TABLE_SCHEM FROM SYSTEM.CATALOG WHERE TABLE_SCHEM IS NOT NULL"
+        query = "SELECT DISTINCT TABLE_SCHEM FROM SYSTEM.CATALOG"
         return [row[0] for row in connection.execute(query)]
 
     def get_table_names(self, connection, schema=None, **kw):
